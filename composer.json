@@ -4,11 +4,6 @@
     "description": "NativePHP Mobile crash collection and typed Telltale outbox import.",
     "type": "nativephp-plugin",
     "license": "MIT",
-    "version": "1.2.0",
-    "repositories": [
-        {"type": "path", "url": "../telltale-client", "options": {"symlink": true}},
-        {"type": "path", "url": "../telltale-contracts", "options": {"symlink": true}}
-    ],
     "require": {
         "php": "^8.4",
         "artisan-build/telltale-client": "^1.2",
@@ -26,17 +21,38 @@
         "pestphp/pest": "^4.7",
         "phpstan/phpstan": "^2.1"
     },
-    "autoload": {"psr-4": {"ArtisanBuild\\TelltaleCrashes\\": "src/"}},
-    "autoload-dev": {"psr-4": {"ArtisanBuild\\TelltaleCrashes\\Tests\\": "tests/"}},
-    "suggest": {"nativephp/mobile": "Native capture requires the Mobile v4 plugin runtime."},
-    "extra": {"laravel": {"providers": ["ArtisanBuild\\TelltaleCrashes\\TelltaleCrashesServiceProvider"]}},
+    "autoload": {
+        "psr-4": {
+            "ArtisanBuild\\TelltaleCrashes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ArtisanBuild\\TelltaleCrashes\\Tests\\": "tests/"
+        }
+    },
+    "suggest": {
+        "nativephp/mobile": "Native capture requires the Mobile v4 plugin runtime."
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ArtisanBuild\\TelltaleCrashes\\TelltaleCrashesServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "lint": "pint",
         "lint:check": "pint --test",
         "stan": "phpstan analyse --memory-limit=256M",
         "test": "pest"
     },
-    "config": {"sort-packages": true, "allow-plugins": {"pestphp/pest-plugin": true}},
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
     "minimum-stability": "stable",
     "prefer-stable": true
 }
